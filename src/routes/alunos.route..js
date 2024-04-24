@@ -1,6 +1,5 @@
 const { Router, query } = require('express') // 
 const Aluno = require('../models/Aluno')
-
 const { auth } = require('../middleware/auth')
 
 const alunoRoutes = new Router()
@@ -13,6 +12,14 @@ alunoRoutes.post('/', async (req, res) => {
         const data_nascimento = req.body.data_nascimento
         const celular = req.body.celular
 
+        if (!email) {
+            return res.status(400).json({ message: 'O email é obrigatório' })
+        }
+        
+        if (!password) {
+            return res.status(400).json({ message: 'O password é obrigatório' })
+        }
+        
         if (!nome) {
             return res.status(400).json({ message: 'O nome é obrigatório' })
         }
