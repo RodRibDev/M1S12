@@ -1,4 +1,6 @@
-# Semana 10 - Introdução ao Sequelize
+# Semana 12 
+
+Instruções para o App
 
 ## Rodar o repositório:
 
