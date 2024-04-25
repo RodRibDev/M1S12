@@ -38,15 +38,13 @@ cursoRoutes.get('/', auth,  async (req, res) => {
     try {
         let params = {}
 
-        // SE for passado uma paramero QUERY chamado "nome" na requisição, então
-        // esse parametro "nome" é adicionado dentro da variavel params
         if (req.query.nome) {
-            // o ...params, cria uma cópia do params com os chaves e valores já existentes
+        
             params = { ...params, nome: req.query.nome }
         }
 
         if (req.query.duracao_horas) {
-            // o ...params, cria uma cópia do params com os chaves e valores já existentes
+        
             params = { ...params, duracao_horas: req.query.duracao_horas }
         }
 
@@ -55,6 +53,7 @@ cursoRoutes.get('/', auth,  async (req, res) => {
         })
 
         res.json(cursos)
+
     } catch (error) {
         console.log(error.message)
         res.status(500).json({ error: 'Não possível listar todos os cursos' })
@@ -69,7 +68,7 @@ cursoRoutes.delete('/:id', auth, (req, res) => {
         where: {
             id: id
         }
-    }) // DELETE cursos from cursos where id = 1
+    })
 
     res.status(204).json({})
 })
